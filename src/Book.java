@@ -5,16 +5,15 @@ public class Book {
     private String description;
     private double price;
 
-    public Book(){
-
+    public Book() {
     }
+
     public Book(String sku, String title, String author, String description, double price) {
         this.sku = sku;
         this.title = title;
         this.author = author;
         this.description = description;
         this.price = price;
-
     }
 
     public String getAuthor() {
@@ -57,7 +56,7 @@ public class Book {
         this.title = title;
     }
 
-    public String toString(){
+    public String toString() {
         return title;
     }
 }
