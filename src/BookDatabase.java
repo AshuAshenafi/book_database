@@ -37,17 +37,23 @@ public class BookDatabase {
     // SEARCH A BOOK WITH SUK METHOD
 
     public Book search_a_book(String sku) {
+            Book found_book = new Book();
+            int count = 0;
 
         if (available_books.size() > 0) {
 
             for (int i = 0; i < available_books.size(); i++) {
                 if (available_books.get(i).getSku().equals(sku)) {
-                    book_found = available_books.get(i);
+                    found_book = available_books.get(i);
+                    count++;
                 }
             }
-        } else {
+        }
+        if(count != 0){
+        return found_book;
+        }
+        else {
             return null;
         }
-        return book_found;
     }
 }

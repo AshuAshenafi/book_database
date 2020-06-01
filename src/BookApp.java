@@ -39,24 +39,26 @@ public class BookApp {
 
     // welcome
     public static void menu_welcome() {
-        String input;
+        int input;
         String book_sku;
         // Prompt user to enter Book info
 
         System.out.print("\nEnter (1) to ADD new Book or \nEnter (2) to SEARCH for a Book \nEnter (3) to DISPLAY all Books Record:\nEnter (any other key) to exit: ");
-        input = keyboard.nextLine();
-        String user_need = input;
+        int user_need = keyboard.nextInt();
+         keyboard.nextLine();
+//        String user_need = input;
 
         // ask user to choose if user wants to add a book or to look for a book
-        if (user_need.equals("1")) {           // means to add a new book
+        if (user_need == 1) {           // means to add a new book
             add_a_book();
-        } else if (user_need.equals("2")) {     // means to search for a book
+        } else if (user_need == 2) {     // means to search for a book
             System.out.print("\nEnter Book SKU: ");
-            input = keyboard.nextLine();
-            book_sku = input;
-            search(book_sku);
+            book_sku = keyboard.nextLine();
 
-        } else if (user_need.equals("3")) {     // display all from the database
+            search(book_sku);
+            keyboard.nextLine();
+
+        } else if (user_need == 3) {     // display all from the database
             display_all();
         } else {
             System.out.println("Good bye! Thank you!");
@@ -136,7 +138,7 @@ public class BookApp {
             print_book(book_from_db.getSku(), book_from_db.getTitle(), book_from_db.getAuthor(), book_from_db.getDescription(), book_from_db.getPrice());
             menu_welcome();
         } else {
-            System.out.println("No Book is added yet.");
+            System.out.println("Sorry we couldn't find your search for: " + sku);
             // back to the main menu
             menu_welcome();
         }
